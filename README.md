@@ -1,7 +1,7 @@
 # The bilinear form test statistic for inference functions and its application to influence diagnostics
 
 [![R](https://img.shields.io/badge/Made%20with-R%20under%20development-success)](https://cran.r-project.org/)
-[![gee](https://img.shields.io/badge/gee-4.13-20-orange)](https://cran.r-project.org/package=gee)
+[![gee](https://img.shields.io/badge/gee-4.13--20-orange)](https://cran.r-project.org/package=gee)
 
 Supplementary material to **The bilinear form test statistic for inference functions and its application to influence diagnostics** by Felipe Osorio and Cibele Russo
 
