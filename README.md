@@ -5,8 +5,6 @@
 
 Supplementary material to **The bilinear form test statistic for inference functions and its application to influence diagnostics** by Felipe Osorio and Cibele Russo
 
-Code written by: Felipe Osorio
-
 Code tested on:
 - R under development (2022-01-27 r81578), running Linux Zorin 16 (64 bits)
 - R version 3.3.0, running OS X 10.13.4 (64 bits)
