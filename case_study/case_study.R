@@ -1,6 +1,6 @@
 ## loading dataset and reading R sources
 load("../data/guide.rda")
-source("../code/diana_GEE.R")
+source("../code/india_GEE.R")
 library(gee)
 
 ## fitted model
