@@ -127,7 +127,7 @@ which <- c(3,4,12,25,38)
 lab <- c(27,41,107,156,235)
 ticklab <- c(8,24,27,41,45,55,56,60,65,89,102,107,108,111,113,118,124,125,127,130,132,137,146,153,156,182,185,195,201,206,207,208,211,216,220,228,232,235)
 
-## Fig 1: plot of bilinear form distances
+## Fig 1.a: plot of bilinear form distances
 par(pty = "s")
 plot(bd, ylim = c(0,.8), xlab = "Cluster", ylab = "Bilinear form distances", axes = FALSE, lwd = 2)
 box()
@@ -135,7 +135,7 @@ axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
 text(idx[which], bd[which], labels = as.character(lab), pos = 3)
 
-## Fig 2.a: plot of bilinear form distances (one-step approximation)
+## Fig 1.b: plot of bilinear form distances (one-step approximation)
 par(pty = "s")
 plot(one, ylim = c(0,.8), xlab = "Cluster", ylab = "Bilinear form distances, one-step approximation", axes = FALSE, lwd = 2)
 box()
@@ -143,34 +143,29 @@ axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
 text(idx[which], one[which], labels = as.character(lab), pos = 3)
 
-## Fig 2.b: plot of concordance
-par(pty = "s")
-plot(bd, one, xlim = c(0, .8), ylim = c(0,.8), xlab = "Exact", ylab = "One-step approximation", lwd = 2)
-abline(c(0,1), lwd = 2, col = "gray55")
-
 ## Observation-level influence measures
 ID <- fm$id
 len <- table(ID)
 o <- BD.msom(fm, x)
 cutoff <- qchisq(0.975, df = 1)
 
-# Fig 3.a: plot of Cook's distances
+# Fig 2.a: plot of Cook's distances
 par(pty = "s")
-plot(rep(1:38, len), o$cooks, xlab = "Cluster", ylab = "Cook's distances", ylim = c(0, 1.2), axes = FALSE, lwd = 2)
+plot(rep(1:38, len), o$cooks, xlab = "Cluster", ylab = "Cook's distances", ylim = c(0, 1.7), axes = FALSE, lwd = 2)
 box()
 axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
 text(c(3,12,18), o$cooks[c(8,44,64)], lab = c("8", "44", "64"), pos = 3)
 
-# Fig 3.b: plot of leverages
+# Fig 2.b: plot of Venezuela's distances
 par(pty = "s")
-plot(rep(1:38, len), o$leverages, xlab = "Cluster", ylab = "Leverages", ylim = c(0, 0.3), axes = FALSE, lwd = 2)
+plot(rep(1:38, len), o$venezuelas, xlab = "Cluster", ylab = "Venezuela's distances", ylim = c(0, 1.7), axes = FALSE, lwd = 2)
 box()
 axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
-text(c(12,35), o$leverages[c(44,122)], lab = c("44", "122"), pos = 3)
+text(c(3,12), o$venezuelas[c(8,44)], lab = c("8", "44"), pos = 3)
 
-# Fig 4.a: plot of BF statistics
+# Fig 3.a: plot of BF statistics
 par(pty = "s")
 plot(rep(1:38, len), o$BF, xlab = "Cluster", ylab = "Bilinear form statistics", ylim = c(0,10), axes = FALSE, lwd = 2)
 box()
@@ -179,7 +174,7 @@ axis(1, at = 1:38, lab = as.character(ticklab))
 abline(h = cutoff, col = "gray55", lwd = 2, lty = 2)
 text(c(25,27), o$BF[c(86,98)], lab = c("86", "98"), pos = 3)
 
-# Fig 4.b: plot of score-type statistics
+# Fig 3.b: plot of score-type statistics
 par(pty = "s")
 plot(rep(1:38, len), o$score, xlab = "Cluster", ylab = "score-type statistics", ylim = c(0,10), axes = FALSE, lwd = 2)
 box()
