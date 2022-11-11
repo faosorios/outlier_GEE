@@ -1,9 +1,9 @@
-# The bilinear form test statistic for inference functions and its application to influence diagnostics
+# The bilinear form test statistic for inference functions and its application to outlier detection
 
 [![R](https://img.shields.io/badge/Made%20with-R%20under%20development-success)](https://cran.r-project.org/)
 [![gee](https://img.shields.io/badge/gee-4.13--20-orange)](https://cran.r-project.org/package=gee)
 
-Supplementary material to **The bilinear form test statistic for inference functions and its application to influence diagnostics** by Felipe Osorio and Cibele Russo
+Supplementary material to **The bilinear form test statistic for inference functions and its application to influence diagnostics** by Felipe Osorio, Angelo Garate and Cibele Russo
 
 Code tested on:
 - R under development (2022-01-27 r81578), running Linux Zorin 16 (64 bits)
