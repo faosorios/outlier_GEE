@@ -15,7 +15,7 @@ x <- as.matrix(x)
 nobs <- nrow(x)
 
 ## removing pacients 8, 44, 64, 86, 88 and 122
-rm.08 <- rm.44 <- rm.64 <- rm.86 <- rm.88 <- rm.122 <- rep(TRUE, n)
+rm.08 <- rm.44 <- rm.64 <- rm.86 <- rm.88 <- rm.122 <- rep(TRUE, nobs)
 rm.08[8] <- rm.44[44] <- rm.64[64] <- rm.86[86] <- rm.88[88] <- rm.122[122] <- FALSE
 fm.08 <- gee(bothered ~ gender + age + dayacc + severe + toilet, id = practID, subset = rm.08,
   data = guide, family = binomial("logit"), corstr = "exchangeable", scale.fix = TRUE, scale.value = 1.)
