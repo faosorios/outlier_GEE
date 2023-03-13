@@ -129,7 +129,7 @@ ticklab <- c(8,24,27,41,45,55,56,60,65,89,102,107,108,111,113,118,124,125,127,13
 
 ## Fig 1.a: plot of bilinear form distances
 par(pty = "s")
-plot(bd, ylim = c(0,.8), xlab = "Cluster", ylab = "Bilinear form distances", axes = FALSE, lwd = 2)
+plot(bd, ylim = c(0,.8), xlab = "Cluster", ylab = "Gradient distances", axes = FALSE, lwd = 2)
 box()
 axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
@@ -137,7 +137,7 @@ text(idx[which], bd[which], labels = as.character(lab), pos = 3)
 
 ## Fig 1.b: plot of bilinear form distances (one-step approximation)
 par(pty = "s")
-plot(one, ylim = c(0,.8), xlab = "Cluster", ylab = "Bilinear form distances, one-step approximation", axes = FALSE, lwd = 2)
+plot(one, ylim = c(0,.8), xlab = "Cluster", ylab = "Gradient distances, one-step approximation", axes = FALSE, lwd = 2)
 box()
 axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
