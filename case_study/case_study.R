@@ -167,7 +167,7 @@ text(c(3,12), o$venezuelas[c(8,44)], lab = c("8", "44"), pos = 3)
 
 # Fig 3.a: plot of BF statistics
 par(pty = "s")
-plot(rep(1:38, len), o$BF, xlab = "Cluster", ylab = "Bilinear form statistics", ylim = c(0,10), axes = FALSE, lwd = 2)
+plot(rep(1:38, len), o$BF, xlab = "Cluster", ylab = "gradient-type statistics", ylim = c(0,10), axes = FALSE, lwd = 2)
 box()
 axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
