@@ -64,6 +64,7 @@ tab1
 # SE       0.9920  0.6252  0.5667 0.0976 0.3675 0.1059
 # 122     -3.1799 -0.7477 -0.6983 0.3755 0.9444 0.0965
 # SE       1.0181  0.5810  0.5498 0.0908 0.3946 0.0974
+
 alpha <- rep(0, 7)
 alpha[1] <- fm$work[2,1]
 alpha[2] <- fm.08$work[2,1]
@@ -76,6 +77,17 @@ names(alpha) <- c("all", "8", "44", "64", "86", "88", "122")
 alpha
 #    all      8     44     64     86     88    122
 # 0.0932 0.0863 0.1020 0.1031 0.0785 0.0314 0.1035
+
+vol1 <- rep(0, 7) # volume of 'robust' estimator of cov(coef)
+vol1[1] <- det(fm$robust)
+vol1[2] <- det(fm.08$robust)
+vol1[3] <- det(fm.44$robust)
+vol1[4] <- det(fm.64$robust)
+vol1[5] <- det(fm.86$robust)
+vol1[6] <- det(fm.88$robust)
+vol1[7] <- det(fm.122$robust)
+names(vol1) <- c("all", "8", "44", "64", "86", "88", "122")
+vol1
 
 ## Table 2
 tab2 <- matrix(0, nrow = 7, ncol = 6)
@@ -119,7 +131,7 @@ tab2
 # robust       16.06   3.96  49.02  17.11  30.32   6.96
 # naive        76.50  68.92  17.21   9.00  49.83  14.07
 
-## Cluster-level bilinear distances
+## Cluster-level gradient distances
 bd <- BD.distance(fm, x) # WARNING! lot of messages are displayed
 one <- BD.1step(fm, x)
 idx <- 1:38
@@ -127,7 +139,7 @@ which <- c(3,4,12,25,38)
 lab <- c(27,41,107,156,235)
 ticklab <- c(8,24,27,41,45,55,56,60,65,89,102,107,108,111,113,118,124,125,127,130,132,137,146,153,156,182,185,195,201,206,207,208,211,216,220,228,232,235)
 
-## Fig 1.a: plot of bilinear form distances
+## Fig 1.a: plot of gradient distances
 par(pty = "s")
 plot(bd, ylim = c(0,.8), xlab = "Cluster", ylab = "Gradient distances", axes = FALSE, lwd = 2)
 box()
@@ -135,7 +147,7 @@ axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
 text(idx[which], bd[which], labels = as.character(lab), pos = 3)
 
-## Fig 1.b: plot of bilinear form distances (one-step approximation)
+## Fig 1.b: plot of gradient distances (one-step approximation)
 par(pty = "s")
 plot(one, ylim = c(0,.8), xlab = "Cluster", ylab = "Gradient distances, one-step approximation", axes = FALSE, lwd = 2)
 box()
@@ -165,7 +177,7 @@ axis(2)
 axis(1, at = 1:38, lab = as.character(ticklab))
 text(c(3,12), o$venezuelas[c(8,44)], lab = c("8", "44"), pos = 3)
 
-# Fig 3.a: plot of BF statistics
+# Fig 3.a: plot of gradient-type statistics
 par(pty = "s")
 plot(rep(1:38, len), o$BF, xlab = "Cluster", ylab = "Gradient-type statistics", ylim = c(0,10), axes = FALSE, lwd = 2)
 box()
