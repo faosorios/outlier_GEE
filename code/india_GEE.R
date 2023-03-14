@@ -1,6 +1,6 @@
 BD.1step <- function(object, x)
 { # GEE diagnostics for binomial with logit-link
-  # one-step approximation to the bilinear form distance
+  # one-step approximation to the gradient distance
   ID <- object$id
   len <- table(ID)
   n <- length(len)
@@ -42,7 +42,7 @@ BD.1step <- function(object, x)
 
 BD.distance <- function(object, x)
 { # GEE diagnostics for binomial with logit-link
-  # bilinear form distances using complete iteration of the GEE estimation algorithm
+  # gradient distances using complete iteration of the GEE estimation algorithm
   ID <- object$id
   len <- table(ID)
   n <- length(len)
@@ -87,7 +87,7 @@ BD.distance <- function(object, x)
 }
 
 BD.msom <- function(object, x)
-{ # Bilinear form influence measures for a single observation (i.e 'patients')
+{ # Case-deletion measures for single observations (i.e 'patients')
   ID <- object$id
   len <- table(ID)
   n <- length(len)
