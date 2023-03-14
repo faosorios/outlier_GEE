@@ -87,39 +87,37 @@ vol1[5] <- det(fm.86$robust)
 vol1[6] <- det(fm.88$robust)
 vol1[7] <- det(fm.122$robust)
 names(vol1) <- c("all", "8", "44", "64", "86", "88", "122")
-vol1
+10^7 * vol1
+#    all      8     44     64     86     88    122 
+# 0.3005 0.3487 0.3124 0.4477 0.3519 0.3916 0.3214 
 
-## Table 2
-tab2 <- matrix(0, nrow = 7, ncol = 6)
-tab2[1:6,1] <- 100 * (tab1[3,] -  tab1[1,]) / tab1[1,]
-tab2[1:6,2] <- 100 * (tab1[5,] -  tab1[1,]) / tab1[1,]
-tab2[1:6,3] <- 100 * (tab1[7,] -  tab1[1,]) / tab1[1,]
-tab2[1:6,4] <- 100 * (tab1[9,] -  tab1[1,]) / tab1[1,]
-tab2[1:6,5] <- 100 * (tab1[11,] -  tab1[1,]) / tab1[1,]
-tab2[1:6,6] <- 100 * (tab1[13,] -  tab1[1,]) / tab1[1,]
-tab2[7,] <- 100 * (alpha[-1] -  alpha[1]) / alpha[1]
-vol1 <- rep(0, 6) # volume of 'robust' estimator of cov(coef)
-det1 <- det(fm$robust)
-vol1[1] <- 100 * (det(fm.08$robust) -  det1) / det1
-vol1[2] <- 100 * (det(fm.44$robust) -  det1) / det1
-vol1[3] <- 100 * (det(fm.64$robust) -  det1) / det1
-vol1[4] <- 100 * (det(fm.86$robust) -  det1) / det1
-vol1[5] <- 100 * (det(fm.88$robust) -  det1) / det1
-vol1[6] <- 100 * (det(fm.122$robust) -  det1) / det1
-tab2 <- rbind(tab2, vol1)
-vol2 <- rep(0, 6) # volume of 'naive' estimator of cov(coef)
-det2 <- det(fm$naive)
-vol2[1] <- 100 * (det(fm.08$naive) -  det2) / det2
-vol2[2] <- 100 * (det(fm.44$naive) -  det2) / det2
-vol2[3] <- 100 * (det(fm.64$naive) -  det2) / det2
-vol2[4] <- 100 * (det(fm.86$naive) -  det2) / det2
-vol2[5] <- 100 * (det(fm.88$naive) -  det2) / det2
-vol2[6] <- 100 * (det(fm.122$naive) -  det2) / det2
-tab2 <- rbind(tab2, vol2)
+vol2 <- rep(0, 7) # volume of 'naive' estimator of cov(coef)
+vol2[1] <- det(fm$naive)
+vol2[2] <- det(fm.08$naive)
+vol2[3] <- det(fm.44$naive)
+vol2[4] <- det(fm.64$naive)
+vol2[5] <- det(fm.86$naive)
+vol2[6] <- det(fm.88$naive)
+vol2[7] <- det(fm.122$naive)
+names(vol2) <- c("all", "8", "44", "64", "86", "88", "122")
+10^7 * vol2
+#    all      8     44     64     86     88    122 
+# 0.4884 0.8620 0.8250 0.5724 0.5323 0.7317 0.5571 
 
-colnames(tab2) <- c("8", "44", "64", "86", "88", "122")
-rownames(tab2) <- c(fm$xnames, "alpha", "robust", "naive")
-tab2
+## Percentage change in parameter estimates
+change <- matrix(0, nrow = 9, ncol = 6)
+change[1:6,1] <- 100 * (tab1[3,] -  tab1[1,]) / tab1[1,]
+change[1:6,2] <- 100 * (tab1[5,] -  tab1[1,]) / tab1[1,]
+change[1:6,3] <- 100 * (tab1[7,] -  tab1[1,]) / tab1[1,]
+change[1:6,4] <- 100 * (tab1[9,] -  tab1[1,]) / tab1[1,]
+change[1:6,5] <- 100 * (tab1[11,] -  tab1[1,]) / tab1[1,]
+change[1:6,6] <- 100 * (tab1[13,] -  tab1[1,]) / tab1[1,]
+change[7,] <- 100 * (alpha[-1] -  alpha[1]) / alpha[1]
+change[8,] <- 100 * (vol1[-1] -  vol1[1]) / vol1[1]
+change[9,] <- 100 * (vol2[-1] -  vol2[1]) / vol2[1]
+colnames(change) <- c("8", "44", "64", "86", "88", "122")
+rownames(change) <- c(fm$xnames, "alpha", "robust", "naive")
+change
 #                  8     44     64     86     88    122
 # (Intercept) -13.04  10.18  11.50   1.09  14.73   4.11
 # gender       44.54   2.00 -32.83  -1.33   2.86   0.33
