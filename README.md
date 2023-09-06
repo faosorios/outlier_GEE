@@ -12,8 +12,12 @@ Code tested on:
 Attached packages: gee 4.13-20
 
 CONTENTS:
-- case_study/case_study.R: R commands for the analysis of GUIDE dataset (described/analyzed at Section 4 from manuscript).
-- code/india_GEE.R: R functions to compute diagnostic measures for GEE (specific for the logistic model).
+- case_study/case_GUIDE.R: R commands for the analysis of GUIDE dataset (described/analyzed at Section 4 from manuscript).
+- case_study/case_LIMA.R: R commands for the analysis of Lima and Sanudo dataset (described/analyzed in Appendix E from supplementary material).
+- code/influenceGEE_logit.R: R functions to compute diagnostic measures for GEE (specific for the logistic model).
+- code/influenceGEE_norm.R: R functions to compute diagnostic measures for GEE (specific for the gaussian model, used in Appendix E).
 - data/guide.rda: urinary incontinence in elderly patients (GUIDE) dataset, in RDA format.
 - data/guide.txt: urinary incontinence in elderly patients (GUIDE) dataset, in text format. Extracted from http://www.bios.unc.edu/~preisser/personal/uidata/
+- data/lima.rda: Lima and Sanudo dataset, in RDA format.
+- data/lima.csv: Lima and Sanudo dataset, in CSV format.
 - README.md: this file.
