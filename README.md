@@ -2,6 +2,7 @@
 
 [![R](https://img.shields.io/badge/Made%20with-R%20under%20development-success)](https://cran.r-project.org/)
 [![gee](https://img.shields.io/badge/gee-4.13--20-orange)](https://cran.r-project.org/package=gee)
+[![DOI](https://img.shields.io/badge/DOI-10.1016/j.spl.2024.110087-blue)](https://doi.org/10.1016/j.spl.2024.110087)
 
 Supplementary material to **The gradient test statistic for outlier detection in generalized estimating equations** by Felipe Osorio, Angelo Garate and Cibele Russo (Statistics & Probability Letters. 209, 110087. DOI: [10.1016/j.spl.2024.110087](https://doi.org/10.1016/j.spl.2024.110087))
 
